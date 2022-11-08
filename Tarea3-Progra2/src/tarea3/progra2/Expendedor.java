@@ -5,11 +5,18 @@ import tarea3.progra2.exceptions.PagoIncorrectoException;
 import tarea3.progra2.exceptions.NoHayBebidaException;
 import tarea3.progra2.exceptions.PagoInsuficienteException;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
 public class Expendedor {
-   int precios[];
-   int capacidad;
-   DepositoMonedas vuelto;
-   ArrayList<Deposito> depositos;
+   private int precios[];
+   private int capacidad;
+   private DepositoMonedas vuelto;
+   private ArrayList<Deposito> depositos;
+   private BufferedImage img;
 
    public Expendedor (int capacidad, int precios[]) {
       this.precios = precios;
@@ -18,18 +25,41 @@ public class Expendedor {
       vuelto =  new DepositoMonedas();
       Deposito d = null;
       Bebida b = null;
+      try {
+         img = ImageIO.read(getClass().getResource("assets/fondoOscuro.png"));
+      }
+      catch (java.io.IOException e) {
+         System.out.println(e);
+      }
+      // r = inicializarGraficoExpendedor();
       for (int i=0;i<3;++i) {
          d = new Deposito();
          for (int j=0;j<capacidad;++j) {
-            if (i==0)
-               b = new CocaCola(i*j + j);
-            else if (i==1)
-               b = new Sprite(i*j + j);
-            else if (i==2)
-               b = new Fanta(i*j + j);
+            switch (i) {
+               case 0:
+                  b = new CocaCola(i*j + j);
+                  break;
+               case 1:
+                  b = new Sprite(i*j + j);
+                  break;
+               case 2:
+                  b = new Fanta(i*j + j);
+                  break;
+            }
             d.addBebida(b);
          }
          depositos.add(d);
+      }
+   }
+   public boolean paint (Graphics g) {
+      try {
+         // g.setColor(Color.black);
+         // g.fillRect(this.x, this.y, this.width, this.height);
+         g.drawImage(this.img, 0, 0, null);
+         return true;
+      }
+      catch (Exception e) {
+         return false;
       }
    }
    public Bebida atender(Moneda m, int tipo) {
@@ -75,5 +105,13 @@ public class Expendedor {
    }
    public Moneda getVuelto(){
        return vuelto.getMoneda();
+   }
+   // private ArrayList<Figura> inicializarGraficoExpendedor () {
+   //    ArrayList<Figura> r = new ArrayList<Figura>();
+   //    Figura f = new Rectangulo(capacidad, capacidad, capacidad, capacidad, null);
+   //    return r;
+   // }
+   public void paint () {
+
    }
 }
