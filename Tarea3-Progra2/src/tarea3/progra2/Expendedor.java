@@ -7,9 +7,8 @@ import tarea3.progra2.exceptions.PagoInsuficienteException;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import javax.imageio.ImageIO;
-import javax.swing.*;
+// import javax.swing.*;
 
 public class Expendedor {
    private int precios[];
@@ -17,6 +16,8 @@ public class Expendedor {
    private DepositoMonedas vuelto;
    private ArrayList<Deposito> depositos;
    private BufferedImage img;
+   private static final int x = 400;
+   private static final int y = 0;
 
    public Expendedor (int capacidad, int precios[]) {
       this.precios = precios;
@@ -26,12 +27,11 @@ public class Expendedor {
       Deposito d = null;
       Bebida b = null;
       try {
-         img = ImageIO.read(getClass().getResource("assets/fondoOscuro.png"));
+         img = ImageIO.read(getClass().getResource("assets/maquina.png"));
       }
       catch (java.io.IOException e) {
          System.out.println(e);
       }
-      // r = inicializarGraficoExpendedor();
       for (int i=0;i<3;++i) {
          d = new Deposito();
          for (int j=0;j<capacidad;++j) {
@@ -53,9 +53,7 @@ public class Expendedor {
    }
    public boolean paint (Graphics g) {
       try {
-         // g.setColor(Color.black);
-         // g.fillRect(this.x, this.y, this.width, this.height);
-         g.drawImage(this.img, 0, 0, null);
+         g.drawImage(this.img, this.x, this.y, null);
          return true;
       }
       catch (Exception e) {

@@ -5,21 +5,26 @@ import javax.swing.*;
 
 public class PanelPrincipal extends JPanel {
    Expendedor exp;
-   Figura f;
+   Moneda m;
+   Comprador c;
    public PanelPrincipal() {
+      this.setBackground(Color.white);
       int precios[] = {700, 700, 700};
-      this.setBackground(Color.yellow);   
       exp = new Expendedor(5, precios);
-      Color c = Color.black;
-      f = new Rectangulo(100, 100, 100, 100, c);
+      m = new Moneda500();
+      c = new Comprador(m, 1, exp);
    }
    public void paint(Graphics g) {
       try {
-         g.setColor(Color.black);
-         g.fillRect(40, 40, 50, 30);
+         super.paint(g);
+         // g.setColor(Color.black);
+         // g.fillRect(40, 40, 50, 30);
          exp.paint(g);
-         f.paint(g);
+         c.paint(g);
+         // this.m.paint(g, 400, 100);
       }
-      catch (Exception e) {}
+      catch (Exception e) {
+         System.out.println(e);
+      }
    }
 }
