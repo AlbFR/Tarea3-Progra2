@@ -14,8 +14,10 @@ public class Expendedor {
    private int precios[];
    private int capacidad;
    private DepositoMonedas vuelto;
+   private DepositoMonedas monedas;
    private ArrayList<Deposito> depositos;
    private BufferedImage img;
+   private Bebida bebidaComprada;
    private static final int x = 400;
    private static final int y = 0;
 
@@ -23,6 +25,7 @@ public class Expendedor {
       this.precios = precios;
       this.capacidad = capacidad;
       this.depositos = new ArrayList<Deposito>();
+      bebidaComprada = null;
       vuelto =  new DepositoMonedas();
       Deposito d = null;
       Bebida b = null;
@@ -36,15 +39,9 @@ public class Expendedor {
          d = new Deposito();
          for (int j=0;j<capacidad;++j) {
             switch (i) {
-               case 0:
-                  b = new CocaCola(i*j + j);
-                  break;
-               case 1:
-                  b = new Sprite(i*j + j);
-                  break;
-               case 2:
-                  b = new Fanta(i*j + j);
-                  break;
+               case 0 -> b = new CocaCola(i*j + j);
+               case 1 -> b = new Sprite(i*j + j);
+               case 2 -> b = new Fanta(i*j + j);
             }
             d.addBebida(b);
          }
@@ -53,14 +50,19 @@ public class Expendedor {
    }
    public boolean paint (Graphics g) {
       try {
-         g.drawImage(this.img, this.x, this.y, null);
+         g.drawImage(this.img, x, y, null);
+         for (int i=0;i<depositos.size();++i) {
+            if (!depositos.get(i).paint(g, i))
+               return false;
+         }
          return true;
       }
       catch (Exception e) {
+         System.out.println(e);
          return false;
       }
    }
-   public Bebida atender(Moneda m, int tipo) {
+   public void comprarBebida(Moneda m, int tipo) {
       try {
          if (m == null) {
             throw new PagoIncorrectoException();
@@ -80,36 +82,30 @@ public class Expendedor {
                c = new Moneda100();
                vuelto.addMoneda(c);
             }
-            return b;
+            if (bebidaComprada == null)
+               bebidaComprada = b;
          }
          else if (m.getValor() < precios[tipo]) {
             vuelto.addMoneda(m);
             throw new PagoInsuficienteException();
          }
-         return null;
       }
       catch (PagoIncorrectoException ex) {
          System.out.println(ex.getMessage());
-         return null;
       }
       catch (PagoInsuficienteException ex) {
          System.out.println(ex.getMessage());
-         return null;
       }
       catch (NoHayBebidaException ex) {
          System.out.println(ex.getMessage());
-         return null;
       }
    }
    public Moneda getVuelto(){
        return vuelto.getMoneda();
    }
-   // private ArrayList<Figura> inicializarGraficoExpendedor () {
-   //    ArrayList<Figura> r = new ArrayList<Figura>();
-   //    Figura f = new Rectangulo(capacidad, capacidad, capacidad, capacidad, null);
-   //    return r;
-   // }
-   public void paint () {
-
+   public Bebida getBebida () {
+      Bebida b = bebidaComprada;
+      bebidaComprada = null;
+      return b;
    }
 }

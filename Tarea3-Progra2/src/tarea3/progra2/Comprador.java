@@ -9,7 +9,7 @@ public class Comprador {
    private int vuelto;
    private BufferedImage img;
    private static final int x = 100;
-   private static final int y = 200;
+   private static final int y = 100;
    public Comprador(Moneda m, int tipo, Expendedor exp) {
       Bebida b = exp.atender(m, tipo);
       try {
