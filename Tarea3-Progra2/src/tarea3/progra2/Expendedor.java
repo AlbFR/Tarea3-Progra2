@@ -27,16 +27,37 @@ public class Expendedor {
       this.depositos = new ArrayList<Deposito>();
       bebidaComprada = null;
       vuelto =  new DepositoMonedas();
-      Deposito d = null;
-      Bebida b = null;
+      monedas = new DepositoMonedas();
       try {
          img = ImageIO.read(getClass().getResource("assets/maquina.png"));
       }
       catch (java.io.IOException e) {
          System.out.println(e);
       }
+      this.llenarDepositos();
+   }
+   public boolean paint (Graphics g) {
+      try {
+         g.drawImage(this.img, x, y, null);
+         for (int i=0;i<depositos.size();++i) {
+            if (!depositos.get(i).paint(g, i))
+               return false;
+         }
+         if (bebidaComprada != null) {
+            bebidaComprada.paint(g, 630, 340);
+         }
+         return true;
+      }
+      catch (Exception e) {
+         System.out.println(e);
+         return false;
+      }
+   }
+   private void llenarDepositos() {
+      this.depositos = new ArrayList<Deposito>();
+      Bebida b = null;
       for (int i=0;i<3;++i) {
-         d = new Deposito();
+         Deposito d = new Deposito();
          for (int j=0;j<capacidad;++j) {
             switch (i) {
                case 0 -> b = new CocaCola(i*j + j);
@@ -46,20 +67,6 @@ public class Expendedor {
             d.addBebida(b);
          }
          depositos.add(d);
-      }
-   }
-   public boolean paint (Graphics g) {
-      try {
-         g.drawImage(this.img, x, y, null);
-         for (int i=0;i<depositos.size();++i) {
-            if (!depositos.get(i).paint(g, i))
-               return false;
-         }
-         return true;
-      }
-      catch (Exception e) {
-         System.out.println(e);
-         return false;
       }
    }
    public void comprarBebida(Moneda m, int tipo) {
@@ -82,8 +89,11 @@ public class Expendedor {
                c = new Moneda100();
                vuelto.addMoneda(c);
             }
-            if (bebidaComprada == null)
+            if (bebidaComprada == null) {
                bebidaComprada = b;
+               System.out.println("Bebida comprada exitosamente");
+               monedas.addMoneda(m);
+            }
          }
          else if (m.getValor() < precios[tipo]) {
             vuelto.addMoneda(m);

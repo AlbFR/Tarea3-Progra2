@@ -11,10 +11,13 @@ public class Deposito{
     public void addBebida(Bebida b){
         a.add(b);
     }
+    public int size() {
+        return a.size();
+    }
     public boolean paint(Graphics g, int k) {
         try {
             for (int i=0;i<a.size();++i) {
-                if (!a.get(i).paint(g, 400+k*5, 500 - i*30))
+                if (!a.get(i).paint(g, 425+k*75, 258 - i*75))
                     return false;
             }
             return true;

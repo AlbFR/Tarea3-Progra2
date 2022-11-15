@@ -24,10 +24,6 @@ public class Ventana extends JFrame {
          System.out.println("On coords "+event);
       });
       this.add(but, BorderLayout.SOUTH);
-      // this.add(new JButton("Centro"), BorderLayout.CENTER);
-      // this.add(new JButton("Norte"), BorderLayout.NORTH);
-      // this.add(new JButton("Este"), BorderLayout.EAST);
-      // this.add(new JButton("Oeste"), BorderLayout.WEST);
       this.add(new PanelPrincipal());
 
       this.setDefaultCloseOperation(EXIT_ON_CLOSE);

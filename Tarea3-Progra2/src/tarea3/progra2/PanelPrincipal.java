@@ -10,9 +10,10 @@ public class PanelPrincipal extends JPanel {
    public PanelPrincipal() {
       this.setBackground(Color.white);
       int precios[] = {700, 700, 700};
-      exp = new Expendedor(5, precios);
-      m = new Moneda500();
+      exp = new Expendedor(4, precios);
+      m = new Moneda1000();
       c = new Comprador(m, 1, exp);
+      exp.comprarBebida(m, 2);
    }
    public void paint(Graphics g) {
       try {

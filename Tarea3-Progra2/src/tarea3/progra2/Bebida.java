@@ -25,7 +25,7 @@ class Sprite extends Bebida{
     public Sprite(int serie){
         super(serie);
         try {
-            img = ImageIO.read(getClass().getResource("assets/lata_sprite.png"));
+            img = ImageIO.read(getClass().getResource("gui_v4/greenSoda.png"));
         }
         catch (java.io.IOException e) {
             System.out.println(e);
@@ -38,7 +38,6 @@ class Sprite extends Bebida{
     public boolean paint(Graphics g, int x, int y) {
         try {
             g.drawImage(img, x, y, null);
-            System.out.println("Sprite drawn");
             return true;
         }
         catch (Exception e) {
@@ -52,7 +51,7 @@ class Fanta extends Bebida{
     public Fanta(int serie){
         super(serie);
         try {
-            img = ImageIO.read(getClass().getResource("assets/rsz_lata_fanta.png"));
+            img = ImageIO.read(getClass().getResource("gui_v4/blueSoda.png"));
         }
         catch (java.io.IOException e) {
             System.out.println(e);
@@ -65,7 +64,6 @@ class Fanta extends Bebida{
     public boolean paint(Graphics g, int x, int y) {
         try {
             g.drawImage(img, x, y, null);
-            System.out.println("Fanta drawn");
             return true;
         }
         catch (Exception e) {
@@ -82,7 +80,8 @@ class CocaCola extends Bebida{
             // Image pn = new ImageIcon("assets/rsz_lata_coca.png").getImage();
             // System.out.println(pn.getWidth(null));
             // img = new BufferedImage(pn.getWidth(null), pn.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-            img = ImageIO.read(getClass().getResource("assets/rsz_lata_coca.png"));
+            // img = ImageIO.read(getClass().getResource("assets/rsz_lata_coca.png"));
+            img = ImageIO.read(getClass().getResource("gui_v4/redSoda.png"));
             // img = Thumbnails.of(img).size(20, 40).asBufferedImage();
         }
         catch (Exception e) {
@@ -99,7 +98,6 @@ class CocaCola extends Bebida{
     public boolean paint(Graphics g, int x, int y) {
         try {
             g.drawImage(img, x, y, null);
-            System.out.println("Coca drawn");
             return true;
         }
         catch (Exception e) {

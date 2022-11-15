@@ -11,27 +11,27 @@ public class Comprador {
    private static final int x = 100;
    private static final int y = 100;
    public Comprador(Moneda m, int tipo, Expendedor exp) {
-      Bebida b = exp.atender(m, tipo);
+      // exp.comprarBebida(m, tipo);
       try {
          img = ImageIO.read(getClass().getResource("assets/stickman.png"));
       }
       catch (Exception e) {
          System.out.println(e);
       }
-      if (b != null) {
-         this.sabor = b.beber();
-         this.vuelto = 0;
-         Moneda c = exp.getVuelto();
-         while (c != null) {
-            vuelto += c.getValor();
-            c = exp.getVuelto();
-         }
-      }
-      else {
-         Moneda m1 = exp.getVuelto();
-         if (m1 != null)
-            this.vuelto = m1.getValor();
-      }
+      // if (b != null) {
+      //    this.sabor = b.beber();
+      //    this.vuelto = 0;
+      //    Moneda c = exp.getVuelto();
+      //    while (c != null) {
+      //       vuelto += c.getValor();
+      //       c = exp.getVuelto();
+      //    }
+      // }
+      // else {
+      //    Moneda m1 = exp.getVuelto();
+      //    if (m1 != null)
+      //       this.vuelto = m1.getValor();
+      // }
    }
    public boolean paint (Graphics g) {
       try {
