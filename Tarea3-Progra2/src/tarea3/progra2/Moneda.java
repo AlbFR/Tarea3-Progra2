@@ -1,11 +1,15 @@
 // Ready!!
 package tarea3.progra2;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 public abstract class Moneda {
+   protected static final int marginx = 10;
+   protected static final int marginy = 17;
    public Moneda() {}
    public abstract int getValor();
 
@@ -31,6 +35,9 @@ class Moneda1000 extends Moneda {
    public boolean paint(Graphics g, int x, int y) {
       try {
          g.drawImage(img, x, y, null);
+         g.setColor(Color.black);
+         g.setFont(new Font("Arial", 1, 8));
+         g.drawString(String.valueOf(this.getSerie()), x+Moneda.marginx, y+Moneda.marginy);
          return true;
       }
       catch (Exception e) {
@@ -60,6 +67,9 @@ class Moneda500 extends Moneda {
    public boolean paint(Graphics g, int x, int y) {
       try {
          g.drawImage(img, x, y, null);
+         g.setColor(Color.black);
+         g.setFont(new Font("Arial", 1, 8));
+         g.drawString(String.valueOf(this.getSerie()), x+Moneda.marginx, y+Moneda.marginy);
          return true;
       }
       catch (Exception e) {
@@ -85,6 +95,9 @@ class Moneda100 extends Moneda {
    public boolean paint(Graphics g, int x, int y) {
       try {
          g.drawImage(img, x, y, null);
+         g.setColor(Color.black);
+         g.setFont(new Font("Arial", 1, 8));
+         g.drawString(String.valueOf(this.getSerie()), x+Moneda.marginx, y+Moneda.marginy);
          return true;
       }
       catch (Exception e) {

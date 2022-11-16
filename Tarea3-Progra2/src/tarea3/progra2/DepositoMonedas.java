@@ -6,11 +6,11 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
-public class DepositoMonedas{
+public class DepositoMonedas {
     private ArrayList<Moneda> a;
     private BufferedImage img;
 
-    public DepositoMonedas(){
+    public DepositoMonedas() {
         a = new ArrayList<Moneda>();
         try {
             img = ImageIO.read(getClass().getResource("assets/deposito_monedas.png"));
@@ -24,8 +24,16 @@ public class DepositoMonedas{
         a.add(b);
     }
 
-    public void paint(Graphics g) {
-        g.drawImage(this.img, 200, 100, null);
+    public void paint(Graphics g, int x, int y) {
+        try {
+            g.drawImage(this.img, x, y, null);
+            for (int i=0;i<a.size();++i) {
+                a.get(i).paint(g, x+19, y+310-i*10);
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public Moneda getMoneda(){

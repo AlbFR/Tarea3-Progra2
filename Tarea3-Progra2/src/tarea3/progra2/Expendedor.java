@@ -34,10 +34,11 @@ public class Expendedor {
       catch (java.io.IOException e) {
          System.out.println(e);
       }
-      this.llenarDepositos();
+      this.llenarDepositosBebida();
    }
    public boolean paint (Graphics g) {
       try {
+         vuelto.paint(g, 750, 50);
          g.drawImage(this.img, x, y, null);
          for (int i=0;i<depositos.size();++i) {
             if (!depositos.get(i).paint(g, i))
@@ -53,18 +54,20 @@ public class Expendedor {
          return false;
       }
    }
-   private void llenarDepositos() {
+   private void llenarDepositosBebida() {
       this.depositos = new ArrayList<Deposito>();
       Bebida b = null;
+      int serie = 0;
       for (int i=0;i<3;++i) {
          Deposito d = new Deposito();
          for (int j=0;j<capacidad;++j) {
             switch (i) {
-               case 0 -> b = new CocaCola(i*j + j);
-               case 1 -> b = new Sprite(i*j + j);
-               case 2 -> b = new Fanta(i*j + j);
+               case 0 -> b = new CocaCola(serie);
+               case 1 -> b = new Sprite(serie);
+               case 2 -> b = new Fanta(serie);
             }
             d.addBebida(b);
+            serie++;
          }
          depositos.add(d);
       }

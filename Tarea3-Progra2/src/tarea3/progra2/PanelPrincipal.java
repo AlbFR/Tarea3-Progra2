@@ -13,7 +13,7 @@ public class PanelPrincipal extends JPanel {
       exp = new Expendedor(4, precios);
       m = new Moneda1000();
       c = new Comprador(m, 1, exp);
-      exp.comprarBebida(m, 2);
+      // exp.comprarBebida(m, 2);
    }
    public void paint(Graphics g) {
       try {
@@ -22,7 +22,6 @@ public class PanelPrincipal extends JPanel {
          // g.fillRect(40, 40, 50, 30);
          exp.paint(g);
          c.paint(g);
-         // this.m.paint(g, 400, 100);
       }
       catch (Exception e) {
          System.out.println(e);
