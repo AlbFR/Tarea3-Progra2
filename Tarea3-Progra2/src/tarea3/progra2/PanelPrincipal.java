@@ -15,13 +15,13 @@ public class PanelPrincipal extends JPanel {
       c = new Comprador(m, 1, exp);
       // exp.comprarBebida(m, 2);
    }
-   public void paint(Graphics g) {
+   public void paintComponent(Graphics g) {
       try {
-         super.paint(g);
+         super.paintComponent(g);
          // g.setColor(Color.black);
          // g.fillRect(40, 40, 50, 30);
-         exp.paint(g);
-         c.paint(g);
+         exp.paintComponent(g);
+         c.paintComponent(g);
       }
       catch (Exception e) {
          System.out.println(e);

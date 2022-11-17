@@ -109,15 +109,15 @@ public class Buttons extends JFrame{
         clearSodas.setContentAreaFilled(false);
         pp.add(clearSodas);
     
-        m100.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent e){  
-                System.out.println("100$ Coin.");
-                pp.getC().
-                this.m100.setEnabled(false);
-            }
-            pp.repaint();
-            }
-        });
+        //m100.addMouseListener(new java.awt.event.MouseAdapter() {
+        //    @Override
+        //    public void mouseClicked(java.awt.event.MouseEvent e){  
+        //        System.out.println("100$ Coin.");
+        //        pp.getC().
+        //        this.m100.setEnabled(false);
+        //    }
+        //    pp.repaint();
+        //    }
+        //});
     }
 }

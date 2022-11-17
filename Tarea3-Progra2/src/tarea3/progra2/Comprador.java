@@ -39,7 +39,7 @@ public class Comprador {
       // }  
       
    }
-   public boolean paint (Graphics g) {
+   public boolean paintComponent (Graphics g) {
       try {
          g.drawImage(this.img, x, y, null);
          m1.paint(g, 265, 360);

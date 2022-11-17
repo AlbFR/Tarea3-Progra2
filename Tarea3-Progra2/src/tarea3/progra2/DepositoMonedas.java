@@ -24,7 +24,7 @@ public class DepositoMonedas {
         a.add(b);
     }
 
-    public void paint(Graphics g, int x, int y) {
+    public void paintComponent(Graphics g, int x, int y) {
         try {
             g.drawImage(this.img, x, y, null);
             for (int i=0;i<a.size();++i) {

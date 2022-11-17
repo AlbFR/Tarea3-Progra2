@@ -43,16 +43,16 @@ public class Expendedor {
       }
       this.llenarDepositosBebida();
    }
-   public boolean paint (Graphics g) {
+   public boolean paintComponent (Graphics g) {
       try {
-         vuelto.paint(g, 750, 50);
+         vuelto.paintComponent(g, 750, 50);
          g.drawImage(this.img, x, y, null);
          for (int i=0;i<depositos.size();++i) {
-            if (!depositos.get(i).paint(g, i))
+            if (!depositos.get(i).paintComponent(g, i))
                return false;
          }
          if (bebidaComprada != null) {
-            bebidaComprada.paint(g, 630, 340);
+            bebidaComprada.paintComponent(g, 630, 340);
          }
          return true;
       }

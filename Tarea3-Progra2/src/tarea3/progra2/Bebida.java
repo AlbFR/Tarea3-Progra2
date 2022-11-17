@@ -19,7 +19,7 @@ public abstract class Bebida {
     public String beber() {
         return "sabor: ";
     }
-    public abstract boolean paint(Graphics g, int x, int y);
+    public abstract boolean paintComponent(Graphics g, int x, int y);
 }
 
 class Sprite extends Bebida{
@@ -37,7 +37,7 @@ class Sprite extends Bebida{
     public String beber(){
         return super.beber() + "sprite";
     }
-    public boolean paint(Graphics g, int x, int y) {
+    public boolean paintComponent(Graphics g, int x, int y) {
         try {
             g.drawImage(img, x, y, null);
             g.setColor(Color.black);
@@ -66,7 +66,7 @@ class Fanta extends Bebida{
     public String beber(){
         return super.beber() + "fanta";
     }
-    public boolean paint(Graphics g, int x, int y) {
+    public boolean paintComponent(Graphics g, int x, int y) {
         try {
             g.drawImage(img, x, y, null);
             g.setColor(Color.black);
@@ -103,7 +103,7 @@ class CocaCola extends Bebida{
     public String beber(){
         return super.beber() + "cocacola";
     }
-    public boolean paint(Graphics g, int x, int y) {
+    public boolean paintComponent(Graphics g, int x, int y) {
         try {
             g.drawImage(img, x, y, null);
             g.setColor(Color.black);
