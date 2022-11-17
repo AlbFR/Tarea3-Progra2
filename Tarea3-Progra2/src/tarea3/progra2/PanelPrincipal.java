@@ -27,4 +27,16 @@ public class PanelPrincipal extends JPanel {
          System.out.println(e);
       }
    }
+    public Expendedor getExp() {
+        return exp;
+    }
+
+    public Moneda getM() {
+        return m;
+    }
+
+    public Comprador getC() {
+        return c;
+    }
+   
 }

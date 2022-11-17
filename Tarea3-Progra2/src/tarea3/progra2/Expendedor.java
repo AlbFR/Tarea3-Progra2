@@ -8,7 +8,7 @@ import tarea3.progra2.exceptions.PagoInsuficienteException;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-// import javax.swing.*;
+// import javax.swing.JButton;
 
 public class Expendedor {
    private int precios[];
@@ -20,8 +20,14 @@ public class Expendedor {
    private Bebida bebidaComprada;
    private static final int x = 400;
    private static final int y = 0;
+   private Deposito coke;
+   private Deposito sprite;
+   private Deposito fanta;
 
    public Expendedor (int capacidad, int precios[]) {
+      coke = new Deposito();
+      sprite = new Deposito();
+      fanta = new Deposito();
       this.precios = precios;
       this.capacidad = capacidad;
       this.depositos = new ArrayList<Deposito>();
@@ -31,6 +37,7 @@ public class Expendedor {
       try {
          img = ImageIO.read(getClass().getResource("assets/maquina.png"));
       }
+      
       catch (java.io.IOException e) {
          System.out.println(e);
       }
@@ -120,5 +127,31 @@ public class Expendedor {
       Bebida b = bebidaComprada;
       bebidaComprada = null;
       return b;
+   }
+   public void refillDepo(){
+       if(coke.isEmpty()){
+           for(int i=0; i<capacidad; i++){
+               Bebida auxsoda = new CocaCola(coke.getCount());
+               coke.addBebida(auxsoda);
+           }
+       }else{
+           System.out.println("There is still coke in the machine.");
+       }
+       if(fanta.isEmpty()){
+           for(int i=0; i<capacidad; i++){
+               Bebida auxsoda = new Fanta(fanta.getCount());
+               fanta.addBebida(auxsoda);
+           }
+       }else{
+           System.out.println("There is still fanta in the machine.");
+       }
+       if(sprite.isEmpty()){
+           for(int i=0; i<capacidad; i++){
+               Bebida auxsoda = new Sprite(sprite.getCount());
+               sprite.addBebida(auxsoda);
+           }
+       }else{
+           System.out.println("There is still sprite in the machine.");
+       }
    }
 }

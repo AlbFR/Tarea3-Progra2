@@ -1,12 +1,14 @@
-package tarea3.progra2;
+    package tarea3.progra2;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class Deposito{
     private ArrayList<Bebida> a;
+    private int count;
     public Deposito(){
         a = new ArrayList<Bebida>();
+        count = 0;
     }
     public void addBebida(Bebida b){
         a.add(b);
@@ -35,6 +37,15 @@ public class Deposito{
         }
         return null;
     }
+    public int getCount(){
+        int auxcount = count;
+        count++;
+        return auxcount;
+    }
+    public Boolean isEmpty(){
+        return a.isEmpty();
+    }
+    
     public String toString() {
         String r = new String();
         for (int i=0;i<a.size();++i) {

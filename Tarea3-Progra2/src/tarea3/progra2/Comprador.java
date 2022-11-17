@@ -3,16 +3,16 @@ package tarea3.progra2;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import java.util.ArrayList;
 
 public class Comprador {
    private String sabor;
-   private int vuelto;
+   private int vuelto, coincount;
+   private ArrayList<Moneda> sencillo;
+   private ArrayList<Bebida> sodas;
    private BufferedImage img;
-   private Moneda m1;
-   private Moneda m2;
-   private Moneda m3;
-   private static final int x = 100;
-   private static final int y = 100;
+   private Moneda m1, m2, m3;
+   private static final int x = 100, y = 100;
    public Comprador(Moneda m, int tipo, Expendedor exp) {
       m1 = new Moneda100();
       m2 = new Moneda500();
@@ -36,7 +36,8 @@ public class Comprador {
       //    Moneda m1 = exp.getVuelto();
       //    if (m1 != null)
       //       this.vuelto = m1.getValor();
-      // }
+      // }  
+      
    }
    public boolean paint (Graphics g) {
       try {
@@ -56,5 +57,24 @@ public class Comprador {
    }
    public int getVuelto() {
       return this.vuelto;
+   }
+   public ArrayList<Moneda> getSencillo(){
+       return sencillo;
+   }
+   public ArrayList<Bebida> getSodas(){
+       return sodas;
+   }
+   public void addSoda(Bebida b){
+       this.sodas.add(b);
+   }
+   
+   public void takeChange(Expendedor exp){
+       Moneda auxchange = exp.getVuelto();
+       if(auxchange != null){
+           vuelto = vuelto +  auxchange.getValor();
+           this.sencillo.add(auxchange);
+       }else{
+           System.out.println("There is not change to take.");
+       }
    }
 }
