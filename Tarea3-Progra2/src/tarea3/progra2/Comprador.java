@@ -40,41 +40,46 @@ public class Comprador {
       
    }
    public boolean paintComponent (Graphics g) {
-      try {
-         g.drawImage(this.img, x, y, null);
-         m1.paint(g, 265, 360);
-         m2.paint(g, 265, 300);
-         m3.paint(g, 265, 240);
-         return true;
-      }
-      catch (Exception e) {
-         System.out.println(e);
-         return false;
-      }
-   }
-   public String getSabor() {
-      return this.sabor;
-   }
-   public int getVuelto() {
-      return this.vuelto;
-   }
-   public ArrayList<Moneda> getSencillo(){
-       return sencillo;
-   }
-   public ArrayList<Bebida> getSodas(){
-       return sodas;
-   }
-   public void addSoda(Bebida b){
-       this.sodas.add(b);
-   }
-   
-   public void takeChange(Expendedor exp){
-       Moneda auxchange = exp.getVuelto();
-       if(auxchange != null){
-           vuelto = vuelto +  auxchange.getValor();
-           this.sencillo.add(auxchange);
-       }else{
+    try {
+        g.drawImage(this.img, x, y, null);
+        m1.paint(g, 265, 360);
+        m2.paint(g, 265, 300);
+        m3.paint(g, 265, 240);
+        return true;
+    }
+    //if(!sodas.isEmpty()){
+    //    for(int i=0; i<sodas.size() && i< CAPACIDAD; i++){ //Reemplazar CAPACIDAD por la cantidad maxima de bebidas que se puedan almacenar.
+    //    sodas.get(i).setBounds(this.getX(), this.getY(),36,56); //Arreglar las coordenadas segun el deposito.
+    //    sodas.get(i).paintComponent(g);
+    //}
+    catch (Exception e) {
+        System.out.println(e);
+        return false;
+        }
+    }
+    public void takeChange(Expendedor exp){
+        Moneda auxchange = exp.getVuelto();
+        if(auxchange != null){
+            vuelto = vuelto +  auxchange.getValor();
+            this.sencillo.add(auxchange);
+        }else{
            System.out.println("There is not change to take.");
-       }
-   }
+        }
+    }
+    
+    public String getSabor() {
+        return this.sabor;
+    }
+    public int getVuelto() {
+        return this.vuelto;
+    }
+    public ArrayList<Moneda> getSencillo(){
+        return sencillo;
+    }
+    public ArrayList<Bebida> getSodas(){
+        return sodas;
+    }
+    public void addSoda(Bebida b){
+        this.sodas.add(b);
+    }
 }
