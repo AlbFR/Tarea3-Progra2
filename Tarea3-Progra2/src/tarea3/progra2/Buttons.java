@@ -1,9 +1,8 @@
 package tarea3.progra2;
 import java.awt.Color;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
-public class Buttons extends JFrame{
+public class Buttons{
     private PanelPrincipal pp;
     private JButton m100;
     private JButton m500;
@@ -11,16 +10,13 @@ public class Buttons extends JFrame{
     
     public Buttons(PanelPrincipal ppaux){
         pp = ppaux;
-        JButton cola = new JButton();
-        JButton fanta = new JButton();
-        JButton sprite = new JButton();    
-        JButton depo = new JButton();
-        JButton buy = new JButton();
-        JButton coin = new JButton();
-        JButton clearChange = new JButton();
-        JButton clearSodas = new JButton();   
+        pp.setLayout(null);
         
-        cola.addMouseListener(new java.awt.event.MouseAdapter() {
+        JButton coke = new JButton("A");
+        coke.setBounds(626, 130, 45, 15);
+        coke.setBackground(Color.black);
+        pp.add(coke);
+        coke.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){
                 System.out.println("\nBuying Coke. . .\n");
@@ -28,10 +24,11 @@ public class Buttons extends JFrame{
                 pp.repaint();
             }
         });
-        cola.setBounds(600, 400, 20, 10);
-        cola.setBackground(Color.black);
-        pp.add(cola);
         
+        JButton fanta = new JButton("B");
+        fanta.setBounds(626, 146, 45, 15);
+        fanta.setBackground(Color.orange);
+        pp.add(fanta);
         fanta.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
@@ -40,10 +37,11 @@ public class Buttons extends JFrame{
                 pp.repaint();
             }
         });
-        fanta.setBounds(600, 410, 20, 10);
-        fanta.setBackground(Color.orange);
-        pp.add(fanta);
         
+        JButton sprite = new JButton("C");
+        sprite.setBounds(626, 162, 45, 15);
+        sprite.setBackground(Color.green);
+        pp.add(sprite);
         sprite.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){
@@ -52,10 +50,12 @@ public class Buttons extends JFrame{
                 pp.repaint();
             }
         });
-        sprite.setBounds(600, 420, 20, 10);
-        sprite.setBackground(Color.green);
-        pp.add(sprite);
         
+        JButton depo = new JButton("Refill");
+        depo.setBounds(500, 400, 50, 70);
+        depo.setOpaque(false);
+        depo.setContentAreaFilled(false);
+        pp.add(depo);
         depo.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){
@@ -64,11 +64,12 @@ public class Buttons extends JFrame{
                 pp.repaint();
             }
         });
-        depo.setBounds(500, 400, 50, 70);
-        depo.setOpaque(false);
-        depo.setContentAreaFilled(false);
-        pp.add(depo);
         
+        JButton buy = new JButton("Buy");
+        buy.setBounds(600,450,70,100);
+        buy.setOpaque(false);
+        buy.setContentAreaFilled(false);
+        pp.add(buy);
         buy.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){  
@@ -76,11 +77,12 @@ public class Buttons extends JFrame{
                 pp.repaint();
             }
         });
-        buy.setBounds(600,450,70,100);
-        buy.setOpaque(false);
-        buy.setContentAreaFilled(false);
-        pp.add(buy);
         
+        JButton clearChange = new JButton("Clear Change");
+        clearChange.setBounds(100,150,10,10);
+        clearChange.setOpaque(false);
+        clearChange.setContentAreaFilled(false);
+        pp.add(clearChange);
         clearChange.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){  
@@ -90,11 +92,12 @@ public class Buttons extends JFrame{
                 pp.repaint();
             }
         });
-        clearChange.setBounds(100,150,10,10);
-        clearChange.setOpaque(false);
-        clearChange.setContentAreaFilled(false);
-        pp.add(clearChange);
         
+        JButton clearSodas = new JButton("Clear Soda");
+        clearSodas.setBounds(200,250,10,10);
+        clearSodas.setOpaque(false);
+        clearSodas.setContentAreaFilled(false);
+        pp.add(clearSodas);
         clearSodas.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){  
@@ -104,20 +107,8 @@ public class Buttons extends JFrame{
                 pp.repaint();
             }
         });
-        clearSodas.setBounds(200,250,10,10);
-        clearSodas.setOpaque(false);
-        clearSodas.setContentAreaFilled(false);
-        pp.add(clearSodas);
-    
-        //m100.addMouseListener(new java.awt.event.MouseAdapter() {
-        //    @Override
-        //    public void mouseClicked(java.awt.event.MouseEvent e){  
-        //        System.out.println("100$ Coin.");
-        //        pp.getC().
-        //        this.m100.setEnabled(false);
-        //    }
-        //    pp.repaint();
-        //    }
-        //});
+        
+        
+        //JButton coin = new JButton();
     }
 }

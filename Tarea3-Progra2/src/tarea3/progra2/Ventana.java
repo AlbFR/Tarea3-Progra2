@@ -11,13 +11,12 @@ public class Ventana extends JFrame {
     
     public Ventana() {
       super();
-        
+
       pp = new PanelPrincipal();
       this.setLayout(new BorderLayout());
       this.setTitle("Expendedor de Bebidas");
 
       button = new Buttons(pp);
-      //this.add(pp);
       this.getContentPane().add(pp);
       this.setDefaultCloseOperation(EXIT_ON_CLOSE);
       this.setSize(1000, 500);
