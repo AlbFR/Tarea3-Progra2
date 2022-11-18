@@ -13,7 +13,7 @@ public class Buttons{
         pp = ppaux;
         pp.setLayout(null);
         retiredSoda = true;
-        
+       
         JButton m100 = new JButton("100$");
         m100.setBounds(260, 230, 100, 60);
         m100.setFocusable(false);
@@ -163,15 +163,13 @@ public class Buttons{
         pp.add(clearSodas);
         clearSodas.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mouseClicked(java.awt.event.MouseEvent e){  
+            public void mouseClicked(java.awt.event.MouseEvent e){
                 retiredSoda = true;
-                if(pp.getC().getSodas().isEmpty()){
+                if(exp.bebidaComprada == null){
                     return;
-                }else{
-                    pp.getC().getSodas().remove(0);
-//                        pp.getC().addSoda(pp.getExp().getBebida());
                 }
-                pp.getExp().bebidaComprada = null;
+                com.sodas.addBebida(exp.getBebida());
+                exp.bebidaComprada = null;               
                 pp.repaint();
             }
         });

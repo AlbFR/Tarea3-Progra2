@@ -50,7 +50,7 @@ public class Expendedor {
          vuelto.paintComponent(g, 750, 50);
          g.drawImage(this.img, x, y, null); // Draw Expendedor image
          for (int i=0;i<depositos.size();++i) { // Draw Sodas Deposit
-            if (!depositos.get(i).paintComponent(g, i))
+            if (!depositos.get(i).paintComponent(g, i, 425, 258))
                return false;
          }
          if (bebidaComprada != null) {

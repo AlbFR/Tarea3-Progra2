@@ -9,7 +9,7 @@ public class Comprador {
    private String sabor;
    private int vuelto, coincount;
    private ArrayList<Moneda> sencillo;
-   private ArrayList<Bebida> sodas;
+   public Deposito sodas;
    private BufferedImage img;
    public Moneda m1, m2, m3;
    public Moneda selectedCoin;
@@ -19,7 +19,7 @@ public class Comprador {
       m2 = new Moneda500();
       m3 = new Moneda1000();
       selectedCoin = null;
-      sodas = new ArrayList<Bebida>();
+      sodas = new Deposito();
       try {
          img = ImageIO.read(getClass().getResource("assets/stickman.png"));
       }
@@ -48,6 +48,7 @@ public class Comprador {
         m1.paint(g, 265, 360);
         m2.paint(g, 265, 300);
         m3.paint(g, 265, 240);
+        sodas.paintComponent(g, 0, 30, 330);
         return true;
     }
 //    if(!sodas.isEmpty()){
@@ -78,11 +79,5 @@ public class Comprador {
     }
     public ArrayList<Moneda> getSencillo(){
         return sencillo;
-    }
-    public ArrayList<Bebida> getSodas(){
-        return sodas;
-    }
-    public void addSoda(Bebida b){
-        this.sodas.add(b);
     }
 }

@@ -16,10 +16,10 @@ public class Deposito{
     public int size() {
         return a.size();
     }
-    public boolean paintComponent(Graphics g, int k) {
+    public boolean paintComponent(Graphics g, int k, int x, int y) {
         try {
             for (int i=0;i<a.size();++i) {
-                if (!a.get(i).paintComponent(g, 425+k*75, 258 - i*75))
+                if (!a.get(i).paintComponent(g, x+k*75, y - i*75))
                     return false;
             }
             return true;
