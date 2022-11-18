@@ -15,9 +15,10 @@ public class Expendedor {
    private int capacidad;
    private DepositoMonedas vuelto;
    private DepositoMonedas monedas;
+   //<private DepositoMonedas money2buy;
    private ArrayList<Deposito> depositos;
    private BufferedImage img;
-   private Bebida bebidaComprada;
+   public Bebida bebidaComprada;
    private static final int x = 400;
    private static final int y = 0;
    private Deposito coke;
@@ -28,6 +29,7 @@ public class Expendedor {
       coke = new Deposito();
       sprite = new Deposito();
       fanta = new Deposito();
+      //money2buy = new DepositoMonedas();
       this.precios = precios;
       this.capacidad = capacidad;
       this.depositos = new ArrayList<Deposito>();

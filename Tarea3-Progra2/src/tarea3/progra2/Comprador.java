@@ -19,6 +19,7 @@ public class Comprador {
       m2 = new Moneda500();
       m3 = new Moneda1000();
       selectedCoin = null;
+      sodas = new ArrayList<Bebida>();
       try {
          img = ImageIO.read(getClass().getResource("assets/stickman.png"));
       }
@@ -49,11 +50,11 @@ public class Comprador {
         m3.paint(g, 265, 240);
         return true;
     }
-    //if(!sodas.isEmpty()){
-    //    for(int i=0; i<sodas.size() && i< CAPACIDAD; i++){ //Reemplazar CAPACIDAD por la cantidad maxima de bebidas que se puedan almacenar.
-    //    sodas.get(i).setBounds(this.getX(), this.getY(),36,56); //Arreglar las coordenadas segun el deposito.
-    //    sodas.get(i).paintComponent(g);
-    //}
+//    if(!sodas.isEmpty()){
+//        for(int i=0; i<sodas.size() && i< 4; i++){ //Reemplazar CAPACIDAD por la cantidad maxima de bebidas que se puedan almacenar.
+//        sodas.get(i).setBounds(this.getX(), this.getY(),36,56); //Arreglar las coordenadas segun el deposito.
+//        sodas.get(i).paintComponent(g);
+//    }
     catch (Exception e) {
         System.out.println(e);
         return false;

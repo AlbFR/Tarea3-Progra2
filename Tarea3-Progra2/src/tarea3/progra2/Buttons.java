@@ -6,11 +6,13 @@ public class Buttons{
     private PanelPrincipal pp;
     private Expendedor exp;
     private Comprador com;
+    private boolean retiredSoda;
     
     public Buttons(PanelPrincipal ppaux, Expendedor exp, Comprador com){
         this.exp = exp;
         pp = ppaux;
         pp.setLayout(null);
+        retiredSoda = true;
         
         JButton m100 = new JButton("100$");
         m100.setBounds(260, 230, 100, 60);
@@ -62,9 +64,14 @@ public class Buttons{
         coke.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){
-                System.out.println("\nBuying Coke. . .\n");
-                pp.getExp().comprarBebida(pp.getM(), 0);
-                pp.repaint();
+                if(retiredSoda == true){
+                    System.out.println("\nBuying Coke. . .\n");
+                    pp.getExp().comprarBebida(pp.getM(), 0);
+                    pp.repaint();
+                    retiredSoda = false;
+                }else{
+                    System.out.println("The soda hasnt been retired yet.");
+                }
             }
         });
         
@@ -76,9 +83,14 @@ public class Buttons{
         fanta.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
-                System.out.println("\nBuying Fanta. . .\n");
-                pp.getExp().comprarBebida(pp.getM(), 1);
-                pp.repaint();
+                if(retiredSoda == true){
+                    System.out.println("\nBuying Fanta. . .\n");
+                    pp.getExp().comprarBebida(pp.getM(), 1);
+                    pp.repaint();
+                    retiredSoda = false;
+                }else{
+                    System.out.println("The soda hasnt been retired yet.");
+                }
             }
         });
         
@@ -90,9 +102,14 @@ public class Buttons{
         sprite.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){
-                System.out.println("\nBuying Sprite. . .");
-                pp.getExp().comprarBebida(pp.getM(), 2);
-                pp.repaint();
+                if(retiredSoda == true){
+                    System.out.println("\nBuying Sprite. . .");
+                    pp.getExp().comprarBebida(pp.getM(), 2);
+                    pp.repaint();
+                    retiredSoda = false;
+                }else{
+                    System.out.println("The soda hasnt been retired yet.");
+                }
             }
         });
         
@@ -147,11 +164,14 @@ public class Buttons{
         clearSodas.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){  
+                retiredSoda = true;
                 if(pp.getC().getSodas().isEmpty()){
                     return;
                 }else{
                     pp.getC().getSodas().remove(0);
+//                        pp.getC().addSoda(pp.getExp().getBebida());
                 }
+                pp.getExp().bebidaComprada = null;
                 pp.repaint();
             }
         });
