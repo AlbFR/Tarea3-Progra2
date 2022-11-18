@@ -4,8 +4,11 @@ import javax.swing.JButton;
 
 public class Buttons{
     private PanelPrincipal pp;
+    private Expendedor exp;
+    private Comprador com;
     
-    public Buttons(PanelPrincipal ppaux){
+    public Buttons(PanelPrincipal ppaux, Expendedor exp, Comprador com){
+        this.exp = exp;
         pp = ppaux;
         pp.setLayout(null);
         
@@ -19,7 +22,7 @@ public class Buttons{
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 System.out.println("\n100$ coin selected. . .");
-                //Coin selector function.
+                com.selectedCoin = com.m1;
             }
         });
         
@@ -33,7 +36,7 @@ public class Buttons{
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 System.out.println("\n500$ coin selected. . .");
-                //Coin selector function.
+                com.selectedCoin = com.m2;
             }
         });
         
@@ -47,7 +50,7 @@ public class Buttons{
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 System.out.println("\n1000$ coin selected. . .");
-                //Coin selector function.
+                com.selectedCoin = com.m3;
             }
         });
         
@@ -67,7 +70,7 @@ public class Buttons{
         
         JButton fanta = new JButton("B");
         fanta.setBounds(626, 146, 45, 15);
-        fanta.setBackground(Color.orange);
+        fanta.setBackground(Color.green);
         fanta.setFocusable(false);
         pp.add(fanta);
         fanta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -81,7 +84,7 @@ public class Buttons{
         
         JButton sprite = new JButton("C");
         sprite.setBounds(626, 162, 45, 15);
-        sprite.setBackground(Color.green);
+        sprite.setBackground(Color.orange);
         sprite.setFocusable(false);
         pp.add(sprite);
         sprite.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,40 +106,37 @@ public class Buttons{
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){
                 System.out.println("Refilling. . .");
-                pp.getExp().refillDepo();
+                exp.llenarDepositosBebida();
                 pp.repaint();
             }
-        });
-        
-        JButton buy = new JButton("buy");
-        buy.setBounds(0,0,150,150);
-        buy.setOpaque(false);
-        buy.setContentAreaFilled(false);
-        buy.setFocusable(false);
-        pp.add(buy);
-        buy.addMouseListener(new java.awt.event.MouseAdapter() {
+        });        
+        JButton clearChange = new JButton("Clear Change");
+            clearChange.setBounds(750,50,120,353);
+            clearChange.setOpaque(false);
+            clearChange.setContentAreaFilled(false);
+            clearChange.setFocusable(false);
+            pp.add(clearChange);
+            clearChange.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent e){  
                 pp.getC().takeChange(pp.getExp());
                 pp.repaint();
             }
         });
-        
-        JButton clearChange = new JButton("Clear Change");
-        clearChange.setBounds(750,50,120,353);
-        clearChange.setOpaque(false);
-        clearChange.setContentAreaFilled(false);
-        clearChange.setFocusable(false);
-        pp.add(clearChange);
-        clearChange.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent e){  
-                if(!pp.getC().getSencillo().isEmpty()){
-                    pp.getC().getSencillo().remove(0);
-                }
-                pp.repaint();
-            }
-        });
+        //clearChange.setBounds(750,50,120,353);
+        //clearChange.setOpaque(false);
+        //clearChange.setContentAreaFilled(false);
+        //clearChange.setFocusable(false);
+        //pp.add(clearChange);
+        //clearChange.addMouseListener(new java.awt.event.MouseAdapter() {
+        //    @Override
+        //    public void mouseClicked(java.awt.event.MouseEvent e){  
+        //        if(!pp.getC().getSencillo().isEmpty()){
+        //            pp.getC().getSencillo().remove(0);
+        //        }
+        //        pp.repaint();
+        //    }
+        //});
         
         JButton clearSodas = new JButton("Clear Soda");
         clearSodas.setBounds(620,322,56,82);

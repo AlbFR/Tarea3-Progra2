@@ -46,8 +46,8 @@ public class Expendedor {
    public boolean paintComponent (Graphics g) {
       try {
          vuelto.paintComponent(g, 750, 50);
-         g.drawImage(this.img, x, y, null);
-         for (int i=0;i<depositos.size();++i) {
+         g.drawImage(this.img, x, y, null); // Draw Expendedor image
+         for (int i=0;i<depositos.size();++i) { // Draw Sodas Deposit
             if (!depositos.get(i).paintComponent(g, i))
                return false;
          }
@@ -61,7 +61,7 @@ public class Expendedor {
          return false;
       }
    }
-   private void llenarDepositosBebida() {
+   public void llenarDepositosBebida() {
       this.depositos = new ArrayList<Deposito>();
       Bebida b = null;
       int serie = 0;

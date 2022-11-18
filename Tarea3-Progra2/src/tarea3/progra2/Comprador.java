@@ -11,12 +11,14 @@ public class Comprador {
    private ArrayList<Moneda> sencillo;
    private ArrayList<Bebida> sodas;
    private BufferedImage img;
-   private Moneda m1, m2, m3;
+   public Moneda m1, m2, m3;
+   public Moneda selectedCoin;
    private static final int x = 100, y = 100;
    public Comprador(Moneda m, int tipo, Expendedor exp) {
       m1 = new Moneda100();
       m2 = new Moneda500();
       m3 = new Moneda1000();
+      selectedCoin = null;
       try {
          img = ImageIO.read(getClass().getResource("assets/stickman.png"));
       }

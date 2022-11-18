@@ -16,7 +16,7 @@ public class Ventana extends JFrame {
       this.setLayout(new BorderLayout());
       this.setTitle("Expendedor de Bebidas");
 
-      button = new Buttons(pp);
+      button = new Buttons(pp, pp.exp, pp.c);
       this.getContentPane().add(pp);
       this.setDefaultCloseOperation(EXIT_ON_CLOSE);
       this.setSize(1000, 500);
