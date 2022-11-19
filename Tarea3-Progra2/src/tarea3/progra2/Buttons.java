@@ -14,7 +14,7 @@ public class Buttons{
         pp.setLayout(null);
         retiredSoda = true;
        
-        JButton m100 = new JButton("100$");
+        JButton m100 = new JButton("$1000");
         m100.setBounds(260, 230, 100, 60);
         m100.setFocusable(false);
         m100.setOpaque(false);
@@ -28,7 +28,7 @@ public class Buttons{
             }
         });
         
-        JButton m500 = new JButton("500$");
+        JButton m500 = new JButton("$500");
         m500.setBounds(260, 290, 100, 60);
         m500.setFocusable(false);
         m500.setOpaque(false);
@@ -42,7 +42,7 @@ public class Buttons{
             }
         });
         
-        JButton m1000 = new JButton("1000$");
+        JButton m1000 = new JButton("$100");
         m1000.setBounds(260, 350, 100, 60);
         m1000.setFocusable(false);
         m1000.setOpaque(false);

@@ -1,7 +1,6 @@
 package tarea3.progra2;
 
 import java.util.ArrayList;
-import java.awt.*;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;

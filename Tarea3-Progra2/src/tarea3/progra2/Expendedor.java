@@ -8,7 +8,6 @@ import tarea3.progra2.exceptions.PagoInsuficienteException;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-// import javax.swing.JButton;
 
 public class Expendedor {
    private int precios[];
@@ -16,22 +15,14 @@ public class Expendedor {
    private int ultima_bebida;
    private DepositoMonedas vuelto;
    private DepositoMonedas monedas;
-   //<private DepositoMonedas money2buy;
    private ArrayList<Deposito> depositos;
    private BufferedImage img;
    public Bebida bebidaComprada;
    private static final int x = 400;
    private static final int y = 0;
-   private Deposito coke;
-   private Deposito sprite;
-   private Deposito fanta;
 
    public Expendedor (int capacidad, int precios[]) {
-      coke = new Deposito();
-      sprite = new Deposito();
-      fanta = new Deposito();
       this.ultima_bebida = 0;
-      //money2buy = new DepositoMonedas();
       this.precios = precios;
       this.capacidad = capacidad;
       this.depositos = new ArrayList<Deposito>();
@@ -69,19 +60,8 @@ public class Expendedor {
       }
    }
    public void llenarDepositosBebida() {
-      // this.depositos = new ArrayList<Deposito>();
       for (int i=0;i<3;++i) {
          this.ultima_bebida += this.depositos.get(i).llenarDeposito(this.capacidad, ultima_bebida, i);
-         // for (int j=0;j<capacidad;++j) {
-         //    switch (i) {
-         //       case 0 -> b = new CocaCola(serie);
-         //       case 1 -> b = new Sprite(serie);
-         //       case 2 -> b = new Fanta(serie);
-         //    }
-         //    d.addBebida(b);
-         //    serie++;
-         // }
-         // depositos.add(d);
       }
    }
    public void comprarBebida(Moneda m, int tipo) {
@@ -133,30 +113,4 @@ public class Expendedor {
       bebidaComprada = null;
       return b;
    }
-   // public void refillDepo(){
-   //     if(coke.isEmpty()){
-   //         for(int i=0; i<capacidad; i++){
-   //             Bebida auxsoda = new CocaCola(coke.getCount());
-   //             coke.addBebida(auxsoda);
-   //         }
-   //     }else{
-   //         System.out.println("There is still coke in the machine.");
-   //     }
-   //     if(fanta.isEmpty()){
-   //         for(int i=0; i<capacidad; i++){
-   //             Bebida auxsoda = new Fanta(fanta.getCount());
-   //             fanta.addBebida(auxsoda);
-   //         }
-   //     }else{
-   //         System.out.println("There is still fanta in the machine.");
-   //     }
-   //     if(sprite.isEmpty()){
-   //         for(int i=0; i<capacidad; i++){
-   //             Bebida auxsoda = new Sprite(sprite.getCount());
-   //             sprite.addBebida(auxsoda);
-   //         }
-   //     }else{
-   //         System.out.println("There is still sprite in the machine.");
-   //     }
-   // }
 }

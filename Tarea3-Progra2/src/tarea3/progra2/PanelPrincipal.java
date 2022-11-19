@@ -4,22 +4,19 @@ import java.awt.*;
 import javax.swing.*;
 
 public class PanelPrincipal extends JPanel {
-   Expendedor exp;
-   Moneda m;
-   Comprador c;
+   public Expendedor exp;
+   public Moneda m;
+   public Comprador c;
    public PanelPrincipal() {
       this.setBackground(Color.white);
       int precios[] = {700, 700, 700};
       exp = new Expendedor(4, precios);
       m = new Moneda1000();
       c = new Comprador(m, 1, exp);
-      // exp.comprarBebida(m, 2);
    }
    public void paintComponent(Graphics g) {
       try {
          super.paintComponent(g);
-         // g.setColor(Color.black);
-         // g.fillRect(40, 40, 50, 30);
          exp.paintComponent(g);
          c.paintComponent(g);
       }

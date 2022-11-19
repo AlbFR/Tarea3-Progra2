@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Comprador {
    private String sabor;
-   private int vuelto, coincount;
+   private int vuelto;
    private ArrayList<Moneda> sencillo;
    public Deposito sodas;
    private BufferedImage img;
@@ -26,21 +26,6 @@ public class Comprador {
       catch (Exception e) {
          System.out.println(e);
       }
-      // if (b != null) {
-      //    this.sabor = b.beber();
-      //    this.vuelto = 0;
-      //    Moneda c = exp.getVuelto();
-      //    while (c != null) {
-      //       vuelto += c.getValor();
-      //       c = exp.getVuelto();
-      //    }
-      // }
-      // else {
-      //    Moneda m1 = exp.getVuelto();
-      //    if (m1 != null)
-      //       this.vuelto = m1.getValor();
-      // }  
-      
    }
    public boolean paintComponent (Graphics g) {
     try {
@@ -51,11 +36,6 @@ public class Comprador {
         sodas.paintComponent(g, 0, 30, 330);
         return true;
     }
-//    if(!sodas.isEmpty()){
-//        for(int i=0; i<sodas.size() && i< 4; i++){ //Reemplazar CAPACIDAD por la cantidad maxima de bebidas que se puedan almacenar.
-//        sodas.get(i).setBounds(this.getX(), this.getY(),36,56); //Arreglar las coordenadas segun el deposito.
-//        sodas.get(i).paintComponent(g);
-//    }
     catch (Exception e) {
         System.out.println(e);
         return false;
