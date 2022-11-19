@@ -10,6 +10,27 @@ public class Deposito{
         a = new ArrayList<Bebida>();
         count = 0;
     }
+    public int llenarDeposito(int capacidad, int serie_inicial, int tipo) {
+        Bebida b = null;
+        if (this.a.size() >= capacidad)
+            return 0;
+        int start = this.a.size();
+        for (int i=start;i<capacidad;++i) {
+            switch (tipo) {
+                case 0:
+                    b = new CocaCola(serie_inicial+i-start);
+                    break;
+                case 1:
+                    b = new Sprite(serie_inicial+i-start);
+                    break;
+                case 2:
+                    b = new Fanta(serie_inicial+i-start);
+                    break;
+            }
+            this.addBebida(b);
+        }
+        return capacidad - start;
+    }
     public void addBebida(Bebida b){
         a.add(b);
     }

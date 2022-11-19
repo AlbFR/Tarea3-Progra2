@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 public class Expendedor {
    private int precios[];
    private int capacidad;
+   private int ultima_bebida;
    private DepositoMonedas vuelto;
    private DepositoMonedas monedas;
    //<private DepositoMonedas money2buy;
@@ -29,10 +30,14 @@ public class Expendedor {
       coke = new Deposito();
       sprite = new Deposito();
       fanta = new Deposito();
+      this.ultima_bebida = 0;
       //money2buy = new DepositoMonedas();
       this.precios = precios;
       this.capacidad = capacidad;
       this.depositos = new ArrayList<Deposito>();
+      this.depositos.add(new Deposito());
+      this.depositos.add(new Deposito());
+      this.depositos.add(new Deposito());
       bebidaComprada = null;
       vuelto =  new DepositoMonedas();
       monedas = new DepositoMonedas();
@@ -64,21 +69,19 @@ public class Expendedor {
       }
    }
    public void llenarDepositosBebida() {
-      this.depositos = new ArrayList<Deposito>();
-      Bebida b = null;
-      int serie = 0;
+      // this.depositos = new ArrayList<Deposito>();
       for (int i=0;i<3;++i) {
-         Deposito d = new Deposito();
-         for (int j=0;j<capacidad;++j) {
-            switch (i) {
-               case 0 -> b = new CocaCola(serie);
-               case 1 -> b = new Sprite(serie);
-               case 2 -> b = new Fanta(serie);
-            }
-            d.addBebida(b);
-            serie++;
-         }
-         depositos.add(d);
+         this.ultima_bebida += this.depositos.get(i).llenarDeposito(this.capacidad, ultima_bebida, i);
+         // for (int j=0;j<capacidad;++j) {
+         //    switch (i) {
+         //       case 0 -> b = new CocaCola(serie);
+         //       case 1 -> b = new Sprite(serie);
+         //       case 2 -> b = new Fanta(serie);
+         //    }
+         //    d.addBebida(b);
+         //    serie++;
+         // }
+         // depositos.add(d);
       }
    }
    public void comprarBebida(Moneda m, int tipo) {
@@ -130,30 +133,30 @@ public class Expendedor {
       bebidaComprada = null;
       return b;
    }
-   public void refillDepo(){
-       if(coke.isEmpty()){
-           for(int i=0; i<capacidad; i++){
-               Bebida auxsoda = new CocaCola(coke.getCount());
-               coke.addBebida(auxsoda);
-           }
-       }else{
-           System.out.println("There is still coke in the machine.");
-       }
-       if(fanta.isEmpty()){
-           for(int i=0; i<capacidad; i++){
-               Bebida auxsoda = new Fanta(fanta.getCount());
-               fanta.addBebida(auxsoda);
-           }
-       }else{
-           System.out.println("There is still fanta in the machine.");
-       }
-       if(sprite.isEmpty()){
-           for(int i=0; i<capacidad; i++){
-               Bebida auxsoda = new Sprite(sprite.getCount());
-               sprite.addBebida(auxsoda);
-           }
-       }else{
-           System.out.println("There is still sprite in the machine.");
-       }
-   }
+   // public void refillDepo(){
+   //     if(coke.isEmpty()){
+   //         for(int i=0; i<capacidad; i++){
+   //             Bebida auxsoda = new CocaCola(coke.getCount());
+   //             coke.addBebida(auxsoda);
+   //         }
+   //     }else{
+   //         System.out.println("There is still coke in the machine.");
+   //     }
+   //     if(fanta.isEmpty()){
+   //         for(int i=0; i<capacidad; i++){
+   //             Bebida auxsoda = new Fanta(fanta.getCount());
+   //             fanta.addBebida(auxsoda);
+   //         }
+   //     }else{
+   //         System.out.println("There is still fanta in the machine.");
+   //     }
+   //     if(sprite.isEmpty()){
+   //         for(int i=0; i<capacidad; i++){
+   //             Bebida auxsoda = new Sprite(sprite.getCount());
+   //             sprite.addBebida(auxsoda);
+   //         }
+   //     }else{
+   //         System.out.println("There is still sprite in the machine.");
+   //     }
+   // }
 }
