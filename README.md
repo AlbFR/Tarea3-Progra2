@@ -1,1 +1,3 @@
-# Tarea3-Progra2
+# Tarea 3 - Programación II
+- Alberto Ferrada Rivas
+- Tomás Contreras Kong
